@@ -3,23 +3,30 @@ import java.util.Scanner;
 public class Desafio {
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-
-        String name = "Leonardo Diman Martins";
-        String accType = "Corrente";
-        int accountValue = 2000;
         boolean systemOn = true;
 
+        System.out.println("""
+                ***********************
+                Bem vindo! Vamos realizar um cadastro inicial.
+                
+                Digite seu nome completo:""");
+
+        String name = scan.nextLine();
+        System.out.println("Certo! Agora digite o tipo de conta que gostaria de aderir:");
+
+        String accType = scan.nextLine();
+        System.out.println("Perfeito! Estamos quase acabando. Só falta me dizer qual o valor inicial da sua conta:");
+
+        int accountValue = scan.nextInt();
         System.out.printf("""
                 ***********************
-                Dados iniciais do cliente:
+                Aqui estão seus dados iniciais:
                 
                 Nome:             %s
                 Tipo de conta:    %s
                 Saldo Inicial:    R$ %d,00
                 ***********************
                 """, name, accType, accountValue);
-
-
 
         while (systemOn) {
             System.out.println("""
@@ -39,7 +46,7 @@ public class Desafio {
             if (interaction == 1) {
                 System.out.printf("""
                         
-                        Seu saldo atual é de: %d
+                        Seu saldo atual é de: R$ %d,00
                         -----------------------------------------
                         """, accountValue);
             } else if (interaction == 2) {
@@ -81,6 +88,6 @@ public class Desafio {
             }
         }
 
-        System.out.println("Até logo!");
+        System.out.printf("Até logo %s!", name);
     }
 }
